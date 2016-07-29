@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Bingo</title>
+        <script src="/angular/angular.js"></script>
+    </head>
+    <body data-ng-app="BingoApp" data-ng-controller="BingoController as vm">
+        <div>
+            <input type="text" id="userId" data-ng-model="vm.userId">
+            <button data-ng-click="vm.saveUser()">Save</button>
+            users: {{vm.users}}
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/bingoapp.js"></script>
+    </body>
+</html>
