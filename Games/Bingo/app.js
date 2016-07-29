@@ -16,6 +16,10 @@
         res.sendFile(__dirname + '/index.html');
     });
 
+    app.get('*', function (req, res) {
+        res.redirect('/');
+    });
+    
     io.sockets.on('connection', function(socket){
         
         socket.on('sendUserId', function(data){

@@ -2,25 +2,8 @@
     'use strict';
 
     angular
-        .module("BingoApp", [])
+        .module("AngularSocket", [])
         .factory("socket", socket)
-        .controller("BingoController", BingoController)
-
-    BingoController.$inject = ["socket", "$log"];
-
-    function BingoController(socket, $log){
-        var vm = this;
-
-        vm.saveUser = saveUser;
-
-        function saveUser(){
-            socket.emit('sendUserId', vm.userId);
-        }
-
-        socket.on('newUser', function(data){
-            vm.users = data;
-        });
-    }
 
     socket.$inject = ["$rootScope"];
     function socket($rootScope) {
@@ -46,5 +29,14 @@
             }
         };
     }
+
+/*
+//sample
+
+socket.emit('sendUserId', vm.userId);
+socket.on('newUser', function(data){
+    vm.users = data;
+});
+*/
 
 })()
