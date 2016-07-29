@@ -1,1 +1,0 @@
-run "node server" and "webpack-dev-server --progress --colors" in separate terminals.
