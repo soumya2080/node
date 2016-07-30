@@ -2,12 +2,12 @@
 'use strict';
 
     angular
-        .module('BingoLogin')
+        .module('BingoApp')
         .controller('LoginController', LoginController);
 
     LoginController.$inject = [];
     function LoginController() {
         var vm = this;
-        
+        vm.user = {};
     }
 })();

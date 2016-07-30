@@ -1,0 +1,29 @@
+<div layout="column" class="signupBox md-whiteframe-z1">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Signup</h2>
+        </div>
+    </md-toolbar>
+    <md-content layout="column" class="md-padding">
+        <md-input-container>
+            <label>User Id</label>
+            <input type="email" data-ng-model="vm.user.userId" />
+        </md-input-container>
+        <md-input-container>
+            <label>EmailAddress</label>
+            <input type="email" data-ng-model="vm.user.email" />
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" data-ng-model="vm.user.password" />
+        </md-input-container>
+        <md-input-container>
+            <label>Confirm Password</label>
+            <input type="password" data-ng-model="vm.confirmPassword" />
+        </md-input-container>
+        <div layout="row" layout-align="center center" style="padding-top:20px;">
+            <md-button class="md-raised md-primary">Signup</md-button>
+            <div flex="flex"></div>
+        </div>
+    </md-content>
+</div>

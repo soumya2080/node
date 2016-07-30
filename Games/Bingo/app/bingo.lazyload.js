@@ -12,7 +12,11 @@
         $ocLazyLoadProvider.config({
             modules: [{
                 name: 'LoginModule',
-                files: ['/login/login.app.js', '/login/login.controller.js']
+                files: ['/login/login.controller.js']
+            },
+            {
+                name: 'SignupModule',
+                files: ['/signup/signup.controller.js']
             }]
         });
 

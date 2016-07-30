@@ -7,19 +7,21 @@
         server = require('http').createServer(app),
         io = require('socket.io').listen(server),
         mongoose = require('mongoose'),
+        path = require('path'),
+        //index = require('./routes/index'),
+	    //api = require('./routes/api'),
+	    //authenticate = require('./routes/authenticate')(passport),
         port=3000;
     
     require('./socket')(io);
 
-    app.use(express.static(__dirname + '/../node_modules'));
-    app.use(express.static(__dirname + '/../app'));
+    app.use(express.static(path.join(__dirname + '/..','/app')));
 
-    app.get('/', function(req, res){
-        res.sendFile(__dirname + '../app/index.html');
-    });
+    //app.use('/api', api);
+    //app.use('/auth', authenticate);
 
-    app.get('*', function (req, res) {
-        res.redirect('/');
+    app.get('/*', function(req, res){
+        res.sendFile(path.join(__dirname + '/..','/app/index.html'));
     });
 
     server.listen(port);
