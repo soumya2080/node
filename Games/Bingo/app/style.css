@@ -1,8 +1,24 @@
-.loginBox, .signupBox {
-  max-width:  90%;
-  width: 500px
+.loginBox,
+.signupBox {
+    max-width: 90%;
+    width: 400px
 }
 
-.stretch input  {
-  width: 100%
+.stretch input {
+    width: 100%
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+}
+
+a.md-button {
+    text-decoration: capitalize;
+}
+
+a.md-button:not([disabled]):hover {
+    background-color: defult;
 }

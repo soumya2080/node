@@ -1,10 +1,10 @@
 (function() {
-'use strict';
+    'use strict';
 
-    angular.module('BingoApp')
+    /*angular.module('BingoApp')
     .config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('blue');
-    });
+    });*/
 
 })();

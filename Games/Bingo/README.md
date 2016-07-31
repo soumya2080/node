@@ -2,8 +2,11 @@
 
 loads the required dependencies.
 ```
-npm install 
+npm install
+
+bower install 
 ```
+
 
 Start the node server and browser-sync for dev environment.
 ```

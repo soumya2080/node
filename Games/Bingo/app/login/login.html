@@ -1,22 +1,32 @@
-<div layout="column" class="loginBox md-whiteframe-z1">
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <h2>Login</h2>
-        </div>
-    </md-toolbar>
-    <md-content layout="column" class="md-padding">
-        <md-input-container>
-            <label>UserId</label>
-            <input type="email" data-ng-model="vm.user.username" />
-        </md-input-container>
-        <md-input-container>
-            <label>Password</label>
-            <input type="password" data-ng-model="vm.user.password" />
-        </md-input-container>
-        <div layout="row" layout-align="center center" style="padding-top:20px;">
-            <md-button class="md-raised md-primary">Login</md-button>
-            <div flex="flex"></div>
-            <md-button href="" md-no-ink="md-no-ink">Forgot Password</md-button>
-        </div>
-    </md-content>
+<div class="md-padding" layout="row" layout-align="center center" layout-fill>
+    <div class="loginBox md-whiteframe-z1">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Login</h2>
+            </div>
+        </md-toolbar>
+        <form name="loginForm">
+            <md-content layout="column" class="md-padding">
+                <md-input-container>
+                    <label>User Id</label>
+                    <input type="text" required data-ng-model="vm.user.username" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input type="password" required data-ng-model="vm.user.password" autocomplete="new-password" />
+                </md-input-container>
+                <div layout="row" layout-align="center center">
+                    <md-button flex class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || loginForm.$pending || vm.disableLogin">Login</md-button>
+                </div>
+                <div layout="row">
+                    <div layout="row" layout-align="start center" flex>
+                        <a ui-sref="signup" md-no-ink="md-no-ink" class="md-button md-primary" style="text-transform: capitalize">Signup here</a>
+                    </div>
+                    <div layout="row" layout-align="end center" flex>
+                        <a ui-sref="forgotpassword" md-no-ink="md-no-ink" class="md-button md-primary" style="text-transform: capitalize">Forgot Password</a>
+                    </div>
+                </div>
+            </md-content>
+        </form>
+    </div>
 </div>

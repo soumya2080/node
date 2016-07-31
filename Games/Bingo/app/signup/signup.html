@@ -1,29 +1,53 @@
-<div layout="column" class="signupBox md-whiteframe-z1">
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <h2>Signup</h2>
-        </div>
-    </md-toolbar>
-    <md-content layout="column" class="md-padding">
-        <md-input-container>
-            <label>User Id</label>
-            <input type="email" data-ng-model="vm.user.userId" />
-        </md-input-container>
-        <md-input-container>
-            <label>EmailAddress</label>
-            <input type="email" data-ng-model="vm.user.email" />
-        </md-input-container>
-        <md-input-container>
-            <label>Password</label>
-            <input type="password" data-ng-model="vm.user.password" />
-        </md-input-container>
-        <md-input-container>
-            <label>Confirm Password</label>
-            <input type="password" data-ng-model="vm.confirmPassword" />
-        </md-input-container>
-        <div layout="row" layout-align="center center" style="padding-top:20px;">
-            <md-button class="md-raised md-primary">Signup</md-button>
-            <div flex="flex"></div>
+<div layout="column" layout-fill>
+    <md-content layout="vertical" flex>
+        <div class="md-padding" layout="row" layout-align="center center" layout-fill>
+            <div layout="column" class="signupBox md-whiteframe-z1">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Signup</h2>
+                    </div>
+                </md-toolbar>
+                <md-content layout-padding>
+                    <form name="signupForm">
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>User Id</label>
+                                <input type="text" required data-ng-model="vm.user.userId" autocomplete="new-userId" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Email Address</label>
+                                <input type="email" data-ng-model="vm.user.email" autocomplete="new-email" />
+                            </md-input-container>
+                        </div>
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>First Name</label>
+                                <input type="text" required data-ng-model="vm.user.firstName" autocomplete="new-firstName" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Last Name</label>
+                                <input type="text" required data-ng-model="vm.lastName" autocomplete="new-lastName" />
+                            </md-input-container>
+                        </div>
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Password</label>
+                                <input type="password" required data-ng-model="vm.user.password" autocomplete="new-password" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Confirm Password</label>
+                                <input type="password" required data-ng-model="vm.confirmPassword" autocomplete="new-password" />
+                            </md-input-container>
+                        </div>
+                        <div layout="row" layout-align="center center">
+                            <md-button class="md-raised md-primary" flex data-ng-disabled="signupForm.$invalid || signupForm.$pending || vm.disableSignUp">Signup</md-button>
+                        </div>
+                        <div layout="row" layout-align="start center" layout-padding>
+                            <a ui-sref="login" class="primary">Already have an account? Login here</a>
+                        </div>
+                    </form>
+                </md-content>
+            </div>
         </div>
     </md-content>
 </div>

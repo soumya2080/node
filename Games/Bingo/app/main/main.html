@@ -1,0 +1,13 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 md-primary md-hue-2 navbar">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" hide-gt-md aria-label="Show Menu">
+            <ng-md-icon icon="{{menuIcon}}" ng-click="menuToggle()"></ng-md-icon>
+        </md-button>
+        <h1 flex layout-align="center center" data-ng-init="appName = 'Bingo'">
+                            <span>{{appName | uppercase}}</span>
+                        </h1>
+        <md-button md-no-ink data-ui-sref="login">Login</md-button>
+        <md-button md-no-ink data-ui-sref="signup">Signup</md-button>
+    </div>
+</md-toolbar>
+<div data-ui-view=""></div>
