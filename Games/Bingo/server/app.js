@@ -16,9 +16,19 @@
         LocalStrategy = require('passport-local').Strategy,
         routes = require('./routes/index'),
         api = require('./routes/api'),
-        //authenticate = require('./routes/authenticate')(passport),
-        port = 3000,
-        socket = require('./socket')(io);
+        auth = require('./routes/auth'),
+        port = 3000;
+        require('./socket')(io);
+
+    var dbUrl = 'mongodb://localhost/bingo';
+    var dbConfig = {};
+    mongoose.connect(dbUrl, dbConfig);
+    mongoose.Promise = global.Promise;
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', function() {
+        console.log('Connected to MongoDB');
+    });
 
     app.use(express.static(path.join(__dirname + '/..', '/bower_components')));
     app.use(express.static(path.join(__dirname + '/..', '/app')));
@@ -56,11 +66,14 @@
             };
         }
     }));
-
-    app.use('/', routes);
-    //app.use('/api', api);
-    //app.use('/auth', authenticate);
-
+    /*app.get('/login', function(req, res, next) {
+        res.sendFile(path.join(__dirname + '/..', '/index.html'));
+    });*/
+    app.use('/auth', auth);
+    app.use('/api', api);
+    app.get('/*', function(req, res, next) {
+        res.sendFile(path.join(__dirname + '/..', '/index.html'));
+    })
     server.listen(port);
     server.on('listening', function() {
         console.log('Express server started on port %s at %s', server.address().port, server.address().address);

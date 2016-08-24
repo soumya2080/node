@@ -1,5 +1,18 @@
+var path = require('path');
 var express = require('express');
 var router = express.Router();
+
+router.get('/*', authenticated, function(req, res, next) {
+	next();
+});
+
+function authenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		res.redirect('/login');
+	}
+}
 
 var User = require('../models/User');
 

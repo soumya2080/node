@@ -9,14 +9,14 @@
             <md-content layout="column" class="md-padding">
                 <md-input-container>
                     <label>User Id</label>
-                    <input type="text" required data-ng-model="vm.user.username" />
+                    <input type="text" required data-ng-model="vm.user.userName" />
                 </md-input-container>
                 <md-input-container>
                     <label>Password</label>
                     <input type="password" required data-ng-model="vm.user.password" autocomplete="new-password" />
                 </md-input-container>
                 <div layout="row" layout-align="center center">
-                    <md-button flex class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || loginForm.$pending || vm.disableLogin">Login</md-button>
+                    <md-button flex class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || loginForm.$pending || vm.disableLogin" data-ng-click="vm.login();">Login</md-button>
                 </div>
                 <div layout="row">
                     <div layout="row" layout-align="start center" flex>

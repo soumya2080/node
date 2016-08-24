@@ -8,14 +8,16 @@
             'oc.lazyLoad',
             'AngularSocket'
         ])
-        .run(function($rootScope, $state) {
-            $rootScope.$on('$stateChangeStart', function(e, to) {
-                /*if (result && result.to) {
-                    e.preventDefault();
-                    // Optionally set option.notify to false if you don't want 
-                    // to retrigger another $stateChangeStart event
-                    $state.go(result.to, result.params, {notify: false});
-                }*/
+        .run(function($rootScope, $state, AuthService) {
+            $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options) {
+                //console.log("fromState: "+angular.toJson(fromState)+", toSate:"+angular.toJson(toState));
+                if(toState.name !== 'login' && toState.name !== 'signup') {
+                    event.preventDefault();
+                    if (AuthService.isLoggedIn() === false) {
+                        $state.go('login', {toState: toState});
+                    }
+                } 
+                
             });
         });      
 
