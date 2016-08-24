@@ -77,7 +77,7 @@
 
         function DefaultRoute($injector, $location) {
             var $state = $injector.get('$state');
-            $state.go('login');
+            $state.go('bingo.dashboard');
         }
 
     }
