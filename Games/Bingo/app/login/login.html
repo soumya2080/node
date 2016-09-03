@@ -1,32 +1,33 @@
-<div class="md-padding" layout="row" layout-align="center center" layout-fill>
-    <div class="loginBox md-whiteframe-z1">
+<div class="login-panel" layout="column" layout-align="center center" layout-fill>
+    <div layout="column" class="login-container md-whiteframe-z1">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Login</h2>
             </div>
         </md-toolbar>
-        <form name="loginForm">
-            <md-content layout="column" class="md-padding">
-                <md-input-container>
-                    <label>User Id</label>
-                    <input type="text" required data-ng-model="vm.user.userName" />
-                </md-input-container>
-                <md-input-container>
-                    <label>Password</label>
-                    <input type="password" required data-ng-model="vm.user.password" autocomplete="new-password" />
-                </md-input-container>
-                <div layout="row" layout-align="center center">
-                    <md-button flex class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || loginForm.$pending || vm.disableLogin" data-ng-click="vm.login();">Login</md-button>
-                </div>
-                <div layout="row">
-                    <div layout="row" layout-align="start center" flex>
-                        <a ui-sref="signup" md-no-ink="md-no-ink" class="md-button md-primary" style="text-transform: capitalize">Signup here</a>
-                    </div>
-                    <div layout="row" layout-align="end center" flex>
-                        <a ui-sref="forgotpassword" md-no-ink="md-no-ink" class="md-button md-primary" style="text-transform: capitalize">Forgot Password</a>
-                    </div>
-                </div>
+        <ng-md-icon icon="account_circle" size="100" layout-fill layout-align="center center" layout></ng-md-icon>
+        <form name="loginForm" class="md-padding">
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>User Id</label>
+                <input type="text" required data-ng-model="vm.user.userName" />
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Password</label>
+                <input type="password" required data-ng-model="vm.user.password" autocomplete="new-password" />
+            </md-input-container>
+            <div layout="row" layout-align="center center">
+                <md-button layout-fill class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || loginForm.$pending || vm.disableLogin" data-ng-click="vm.login();">Login</md-button>
+            </div>
+
+            <md-content layout-align="end center">
+                <a ui-sref="forgotpassword" md-no-ink="md-no-ink" class="md-primary">Forgot password</a>
             </md-content>
+
         </form>
+
     </div>
+    <md-content>
+        <a ui-sref="signup" md-no-ink="md-no-ink" class="md-primary">Create account</a>
+    </md-content>
 </div>

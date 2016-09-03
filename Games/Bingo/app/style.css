@@ -1,9 +1,4 @@
 .loginBox,
-.signupBox {
-    max-width: 90%;
-    width: 400px
-}
-
 .stretch input {
     width: 100%
 }
@@ -21,4 +16,33 @@ a.md-button {
 
 a.md-button:not([disabled]):hover {
     background-color: defult;
+}
+
+.login-panel {
+    min-height: 500px;
+}
+
+.signup-panel {
+    min-height: 700px;
+}
+
+.signup-container,
+.login-container {
+    margin-bottom: 12px;
+}
+
+@media only screen and (min-width: 600px) {
+    .signup-container,
+    .login-container {
+        min-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    md-input-container {
+        margin: 5px 0 !important;
+    }
+    md-input-container:first-child {
+        margin: 10px 0 5px 0 !important;
+    }
 }
