@@ -1,13 +1,12 @@
 <div class="login-panel" layout="column" layout-align="center center" layout-fill>
-    <div layout="column" class="login-container md-whiteframe-z1">
+    <div layout="column" class="login-container">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Login</h2>
             </div>
         </md-toolbar>
-        <ng-md-icon icon="account_circle" size="100" layout-fill layout-align="center center" layout></ng-md-icon>
-        <form name="loginForm" class="md-padding">
-
+        <form name="loginForm" class="md-padding md-whiteframe-z1">
+            <ng-md-icon icon="account_circle" size="100" layout-fill layout-align="center center" layout></ng-md-icon>
             <md-input-container class="md-block" flex-gt-sm>
                 <label>User Id</label>
                 <input type="text" required data-ng-model="vm.user.userName" />
