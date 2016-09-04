@@ -18,8 +18,15 @@
             <div layout="row" layout-align="center center">
                 <md-button layout-fill class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || loginForm.$pending || vm.disableLogin" data-ng-click="vm.login();">Login</md-button>
             </div>
-
-            <md-content layout-align="end center">
+            <md-content layout-align="center center" layout="row">
+                <md-button  data-ng-click="vm.externalAuthProvider('facebook')" class="facebook-button" aria-label="facebook-login">
+                    <ng-md-icon icon="facebook" size="24" style="fill: #f7f7f7"></ng-md-icon>
+                </md-button>
+                <md-button  data-ng-click="vm.externalAuthProvider('google')" class="gplus-button" aria-label="googleplus-login">
+                    <ng-md-icon icon="google-plus" size="24" style="fill: #f1f1f1"></ng-md-icon>
+                </md-button>
+            </md-content>     
+            <md-content layout-align="end center" layout>
                 <a ui-sref="forgotpassword" md-no-ink="md-no-ink" class="md-primary">Forgot password</a>
             </md-content>
 

@@ -5,21 +5,22 @@
         .module('BingoApp')
         .factory('AuthService', AuthService);
 
-    AuthService.$inject = ['$q', '$timeout', '$http'];
-    function AuthService($q, $timeout, $http) {
-        var user = null
+    AuthService.$inject = ['$q', '$http', '$rootScope'];
+    function AuthService($q, $http, $rootScope) {
+        $rootScope.user = null
         var service = {
             isLoggedIn: isLoggedIn,
             getUserStatus: getUserStatus,
             login: login,
             logout: logout,
-            register: register
+            register: register,
+            callAuthProvider: callAuthProvider
         };
         
         return service;
 
         function isLoggedIn() {
-            if(user) {
+            if($rootScope.user) {
                 return true;
             } else {
                 return false;
@@ -27,23 +28,24 @@
         }
 
         function getUserStatus() {
-            return user;
+            return $rootScope.user;
         }
 
         function login(user) {
             var deferred = $q.defer();
             $http.post('/auth/login', user)
                 .success(function (data, status) {
+                   
                     if(status === 200 && data.status){
-                        user = true;
+                        $rootScope.user = true;
                         deferred.resolve();
                     } else {
-                        user = false;
+                        $rootScope.user = false;
                         deferred.reject();
-                    }
+                    }                    
                 })
                 .error(function (data) {
-                    user = false;
+                    $rootScope.user = false;
                     deferred.reject();
                 });
                 return deferred.promise;
@@ -53,11 +55,11 @@
             var deferred = $q.defer();
             $http.get('/auth/logout')
                 .success(function (data) {
-                    user = false;
+                    $rootScope.user = false;
                     deferred.resolve();
                 })
                 .error(function (data) {
-                    user = false;
+                    $rootScope.user = false;
                     deferred.reject();
                 });
             return deferred.promise;
@@ -77,6 +79,18 @@
                 });
             return deferred.promise;
 
+        }
+
+        function callAuthProvider(provider) {
+            if(provider === 'facebook') {
+                var deferred = $q.defer();
+                $http.post('/auth/facebook')
+                    .success(function (data, status) { 
+                    })
+                    .error(function (data) {
+                    });
+                    return deferred.promise;
+            }
         }
 
     }

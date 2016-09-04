@@ -53,3 +53,12 @@ a.md-button:not([disabled]):hover {
         margin: 10px 0 5px 0 !important;
     }
 }
+
+/*Buttons :: Start*/
+.md-button.facebook-button, .md-button.facebook-button:hover {
+    background-color: #3b5998;
+}
+.md-button.gplus-button, .md-button.gplus-button:hover {
+    background-color: #d34836;
+}
+/*Buttons :: End*/
