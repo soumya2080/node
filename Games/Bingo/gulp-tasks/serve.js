@@ -35,6 +35,7 @@ gulp.task('nodemon',
 
     return nodemon({
       script: 'server/app.js',
+      env: { 'FB_CLIENT_SECRET': 'FBClientSecrete' },
       watch: ['server/**/*.*']
     })
     .on('start', function () {
